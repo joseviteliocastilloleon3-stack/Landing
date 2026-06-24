@@ -533,8 +533,18 @@ function toggleCart() {
       clearTimeout(actionTimer);
       tapTimer = setTimeout(function(){ tapCount = 0; }, 800);
 
+      if(tapCount === 1){
+        // Espera 500ms por si viene un 2do clic
+        actionTimer = setTimeout(function(){
+          if(tapCount === 1){
+            tapCount = 0;
+            // 1 solo clic = comportamiento normal (scroll al inicio)
+          }
+        }, 500);
+      }
+
       if(tapCount === 2){
-        // Espera 600ms por si viene un 3er clic
+        // Espera 500ms por si viene un 3er clic
         actionTimer = setTimeout(function(){
           if(tapCount === 2){
             e.preventDefault();
@@ -544,10 +554,10 @@ function toggleCart() {
             var p = prompt('Contraseña:');
             if(p === null) return;
             if((u==='jose'||u==='admin') && p==='zenithko2026'){
-              window.location.href = 'https://zenithkopedidos-debug.github.io/jose-/';
+              window.location.href = 'https://joseviteliocastilloleon3-stack.github.io/Jose/';
             } else { alert('Datos incorrectos'); }
           }
-        }, 600);
+        }, 500);
       }
 
       if(tapCount === 3){
