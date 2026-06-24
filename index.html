@@ -609,8 +609,6 @@ function pedirWA() {
   // Disparar con imagen (el navegador sigue el redirect de Google y guarda)
   var img = new Image();
   img.src = url + '&_t=' + Date.now();
-  // Respaldo con fetch no-cors en paralelo
-  try { fetch(url, {mode:'no-cors'}); } catch(e){}
   // Mensaje WhatsApp
   var msg = '🍗 *Hola Zenith-KO! Quiero hacer un pedido:*\n\n';
   for(var i=0; i<cart.length; i++) {
